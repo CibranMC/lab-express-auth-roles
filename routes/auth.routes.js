@@ -18,7 +18,6 @@ router.post('/registro', (req, res, next) => {
 })
 
 
-
 // Login
 router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
