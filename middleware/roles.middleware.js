@@ -1,20 +1,11 @@
-const roleValidation = (role) => (req, res, next) => {
-    if (req.session.currentUser && req.session.currentUser.role === role) {
-        next()
-    } else {
-        res.render('not-found')
-    }
-}
-
 const rolesValidationArray = (roles) => (req, res, next) => {
-    if (roles.includes(req.session.role)) {
+    if (req.session.currentUser && roles.includes(req.session.currentUser.role)) {
         next()
     } else {
-        res.render('not-found')
+        res.redirect('/registro')
     }
 }
 
 module.exports = {
-    roleValidation,
     rolesValidationArray
 }
